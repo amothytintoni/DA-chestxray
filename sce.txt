@@ -1,0 +1,1 @@
+cross_entropy = -tf.reduce_sum( (  (y_*tf.log(out + 1e-9)) + ((1-y_) * tf.log(1 - out + 1e-9)) )  , name='xentropy' )

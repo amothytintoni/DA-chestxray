@@ -5,22 +5,29 @@ import shutil
 import pandas as pd
 import numpy as np
 
-nihkagimpath = os.path.join(os.getcwd(), 'nih-kaggle', 'images', 'images')
-nih14impath = os.path.join(os.getcwd(), 'NIH-14')
+nihkagimpath320 = os.path.join(os.getcwd(), 'nih-kaggle', 'images')
+# nih14impath = os.path.join(os.getcwd(), 'NIH-14')
 df = pd.read_csv('nih-kaggle/NIH_Original label_pp_use this.csv')
 
 file_list = []
 p = []
-for paths, _, files in os.walk(nihkagimpath):
+for paths, _, files in os.walk(nihkagimpath320):
     for file in files:
         file_list.append(os.path.join(paths, file))
 
-Image.open(file_list[0]).save(file_list[0])
+# Image.open(file_list[0]).save(file_list[0])
+# Image.open(file_list[0]).save(file_list[0][:-4])
 
-# print(file_list[0][:-23], file_list[0][-16:])
-for im in file_list:
-    new_im = Image.open(im).resize((320, 320))
-    new_im.save(f'{im[:-23]}{im[-16:]}.png')
+# print(file_list[90001])
+
+# for im in file_list:
+#     if im.endswith('.png.png'):
+#         os.remove(im)
+
+# print(f'{file_list[0][:-21]}-224{file_list[0][-17:]}')
+# for im in file_list:
+#     new_im = Image.open(im).resize((224, 224))
+#     new_im.save(f'{im[:-22]}-224{im[-17:]}.png')
 
 #     # if im.endswith('00000003_000.png'):
 #     #     # print(im)
